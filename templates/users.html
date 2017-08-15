@@ -4,19 +4,26 @@
 
 <h2>Список пользователей</h2>
 
-<div class="well container">
-    <div class="row">
-        <ul class="list">
-
-            {% for user in users %}
-            <li class="list-item">
-                <span> Имя {{ user.name }}</span> <br/>
-                <span> Профессия {{ user.occupation }}</span>
-            </li>
-            {% endfor %}
-        </ul>
-    </div>
-</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Имя</th>
+            <th>Email</th>
+            <th>Профессия</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for user in users %}
+    <tr>
+        <th scope="row">{{loop.index}}</th>
+        <td>{{user.name}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.occupation}}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
 
 <form action="users" method="post">
     <div class="form-group">

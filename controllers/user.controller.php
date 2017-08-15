@@ -4,9 +4,8 @@
 use models\User;
 
 $app->get('/users', function () use ($app) {
-	
-	$oLaboratory = new User ();
-	$users = $oLaboratory->getUsers();
+	$model = new User ();
+	$users = $model->getUsers();
     $app->render('users.html', array('users' => $users));
 });
 

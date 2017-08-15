@@ -1,7 +1,9 @@
 <?php
 
 // Get user
-$app->get('/user', function () use ($app) {	
+use models\User;
+
+$app->get('/user', function () use ($app) {
 	
 	$oLaboratory = new User ();
 	$users = $oLaboratory->getUsers();

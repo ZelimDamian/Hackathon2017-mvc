@@ -24,7 +24,7 @@ $app = new \Slim\Slim(array(
 ));
 
 // Automatically load router files
-$routers = glob('../routers/*.router.php');
+$routers = glob('../controllers/*.controller.php');
 foreach ($routers as $router) {
     require $router;
 }

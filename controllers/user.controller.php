@@ -3,12 +3,11 @@
 // Get user
 use models\User;
 
-$app->get('/user', function () use ($app) {
+$app->get('/users', function () use ($app) {
 	
 	$oLaboratory = new User ();
 	$users = $oLaboratory->getUsers();
-	$app->contentType('application/json');
-	echo json_encode($users);
+    $app->render('users.html', array('users' => $users));
 });
 
 //Create user

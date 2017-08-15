@@ -1,0 +1,21 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+<h2>Список пользователей</h2>
+
+<div class="container">
+    <div class="row">
+        <ul class="list">
+
+            {% for user in users %}
+            <li class="list-item">
+                <span> Имя {{ user.name }}</span> <br/>
+                <span> Профессия {{ user.occupation }}</span>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+{% endblock %}

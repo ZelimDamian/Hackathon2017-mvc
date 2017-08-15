@@ -70,8 +70,8 @@ class User {
 	// Insert a new user
 	public function insertUser($data) {
 		try {
-			$sql = "INSERT INTO user (name, email, password, role) 
-					VALUES (:name, :email, :password, :role)";
+			$sql = "INSERT INTO users (name, email, occupation) 
+					VALUES (:name, :email, :occupation)";
 			$stmt = $this->core->dbh->prepare($sql);
 			if ($stmt->execute($data)) {
 				return $this->core->dbh->lastInsertId();;

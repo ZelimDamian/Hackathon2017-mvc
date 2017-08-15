@@ -10,12 +10,13 @@ $app->get('/users', function () use ($app) {
 });
 
 //Create user
-$app->post('/user', function () use ($app) {	
+$app->post('/users', function () use ($app) {
 	//var_dump($app->request()->post('data'));
-	$user = json_decode($app->request()->post('data'), true);	
-	$user['password'] = hash("sha1", $user['password']);	
-	$oUser = new User ();
-	echo $oUser->insertUser($user);
+	$user = $app->request()->post();
+	$model = new User ();
+	$model->insertUser($user);
+
+	$app->redirect('/users');
 });
 
 // LOGIN GET user by email and passwordS

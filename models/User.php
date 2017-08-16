@@ -34,39 +34,6 @@ class User {
 		return $r;
 	}
 
-	// Get user by the Id
-	public function getUserById($id) {
-		$r = array();		
-		
-		$sql = "SELECT nombre * evnt_usuario WHERE id=$id";
-		$stmt = $this->core->dbh->prepare($sql);
-		//$stmt->bindParam(':id', $this->id, PDO::PARAM_INT);
-
-		if ($stmt->execute()) {
-			$r = $stmt->fetchAll(PDO::FETCH_ASSOC);		   	
-		} else {
-			$r = 0;
-		}		
-		return $r;
-	}
-
-	// Get user by the Login
-	public function getUserByLogin($email, $pass) {
-		$r = array();		
-		
-		$sql = "SELECT * FROM user WHERE email=:email AND password=:pass";		
-		$stmt = $this->core->dbh->prepare($sql);
-		$stmt->bindParam(':email', $email, PDO::PARAM_STR);
-		$stmt->bindParam(':pass', $pass, PDO::PARAM_STR);
-
-		if ($stmt->execute()) {
-			$r = $stmt->fetchAll(PDO::FETCH_ASSOC);		   	
-		} else {
-			$r = 0;
-		}		
-		return $r;
-	}
-
 	// Insert a new user
 	public function insertUser($data) {
 		try {
